@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% translate "Sign in to OnaData" %}{% endblock %}
+
+{% block content %}
+  <h1 class="ona-auth-title">{% translate "Sign in to OnaData" %}</h1>
+
+  {% if form.non_field_errors %}
+    <div class="ona-auth-error">{{ form.non_field_errors }}</div>
+  {% endif %}
+
+  <form method="post" action="." class="ona-auth-form">
+    {% csrf_token %}
+    <div class="ona-field">
+      <label for="id_username">{% translate "Username" %}</label>
+      <input type="text" name="username" id="id_username" autocomplete="username" required value="{{ form.username.value|default:'' }}">
+      {% if form.username.errors %}<div class="ona-field-error">{{ form.username.errors }}</div>{% endif %}
+    </div>
+    <div class="ona-field">
+      <label for="id_password">{% translate "Password" %}</label>
+      <input type="password" name="password" id="id_password" autocomplete="current-password" required>
+      {% if form.password.errors %}<div class="ona-field-error">{{ form.password.errors }}</div>{% endif %}
+    </div>
+    <input type="hidden" name="next" value="{{ next }}">
+    <button type="submit" class="ona-btn ona-btn--primary">{% translate "Sign in" %}</button>
+  </form>
+
+  <p class="ona-auth-aside">
+    {% url "auth_password_reset" as reset_url %}
+    {% blocktranslate %}Forgot your password? <a href="{{ reset_url }}">Reset it.</a>{% endblocktranslate %}
+  </p>
+  <p class="ona-auth-aside">
+    {% url "registration_register" as registration_url %}
+    {% blocktranslate %}Not a member? <a href="{{ registration_url }}">Register.</a>{% endblocktranslate %}
+  </p>
+{% endblock %}
