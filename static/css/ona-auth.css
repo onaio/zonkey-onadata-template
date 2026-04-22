@@ -100,7 +100,9 @@ body {
 
 .ona-field input[type="text"],
 .ona-field input[type="email"],
-.ona-field input[type="password"] {
+.ona-field input[type="password"],
+.ona-field input[type="url"],
+.ona-field select {
   border: 1px solid var(--ona-border);
   border-radius: 8px;
   padding: 10px 12px;
@@ -111,10 +113,16 @@ body {
   width: 100%;
 }
 
-.ona-field input:focus {
+.ona-field input:focus,
+.ona-field select:focus {
   outline: none;
   border-color: var(--ona-primary);
   box-shadow: 0 0 0 3px var(--ona-primary-ring);
+}
+
+.ona-field-help {
+  color: var(--ona-muted);
+  font-size: 12px;
 }
 
 .ona-field-error {

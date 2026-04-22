@@ -12,26 +12,16 @@
 
   <form method="post" action="." class="ona-auth-form">
     {% csrf_token %}
-    <div class="ona-field">
-      <label for="id_username">{% translate "Username" %}</label>
-      <input type="text" name="username" id="id_username" autocomplete="username" required value="{{ form.username.value|default:'' }}">
-      {% if form.username.errors %}<div class="ona-field-error">{{ form.username.errors }}</div>{% endif %}
-    </div>
-    <div class="ona-field">
-      <label for="id_email">{% translate "Email address" %}</label>
-      <input type="email" name="email" id="id_email" autocomplete="email" required value="{{ form.email.value|default:'' }}">
-      {% if form.email.errors %}<div class="ona-field-error">{{ form.email.errors }}</div>{% endif %}
-    </div>
-    <div class="ona-field">
-      <label for="id_password1">{% translate "Password" %}</label>
-      <input type="password" name="password1" id="id_password1" autocomplete="new-password" required>
-      {% if form.password1.errors %}<div class="ona-field-error">{{ form.password1.errors }}</div>{% endif %}
-    </div>
-    <div class="ona-field">
-      <label for="id_password2">{% translate "Confirm password" %}</label>
-      <input type="password" name="password2" id="id_password2" autocomplete="new-password" required>
-      {% if form.password2.errors %}<div class="ona-field-error">{{ form.password2.errors }}</div>{% endif %}
-    </div>
+    {% for field in form %}
+      <div class="ona-field">
+        <label for="{{ field.id_for_label }}">
+          {{ field.label }}{% if field.field.required %} *{% endif %}
+        </label>
+        {{ field }}
+        {% if field.help_text %}<div class="ona-field-help">{{ field.help_text|safe }}</div>{% endif %}
+        {% if field.errors %}<div class="ona-field-error">{{ field.errors }}</div>{% endif %}
+      </div>
+    {% endfor %}
     <button type="submit" class="ona-btn ona-btn--primary">{% translate "Create account" %}</button>
   </form>
 
