@@ -67,7 +67,6 @@
   </form>
 
   <p class="ona-auth-aside">
-    {% url "auth_login" as login_url %}
-    {% blocktranslate %}Already have an account? <a href="{{ login_url }}">Sign in.</a>{% endblocktranslate %}
+    {% blocktranslate %}Already have an account? <a href="{{ ZONKEY_LOGIN_URL }}">Sign in.</a>{% endblocktranslate %}
   </p>
 {% endblock %}

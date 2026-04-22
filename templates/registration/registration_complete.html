@@ -11,5 +11,5 @@
   <p class="ona-auth-body">
     {% translate "Can't find the email? Check your spam folder." %}
   </p>
-  <a href="{% url 'auth_login' %}" class="ona-btn ona-btn--secondary">{% translate "Back to sign in" %}</a>
+  <a href="{{ ZONKEY_LOGIN_URL }}" class="ona-btn ona-btn--secondary">{% translate "Back to sign in" %}</a>
 {% endblock %}
