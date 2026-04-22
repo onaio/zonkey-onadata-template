@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% translate "500 Error" %} &middot; OnaData{% endblock %}
+
+{% block content %}
+  <h1 class="ona-auth-title">{% translate "500 Error" %}</h1>
+  <p class="ona-auth-aside">
+    {% blocktranslate %}If you are getting this error while trying to submit a form, please do consider sending an email to <a href="mailto:support@ona.io">support@ona.io</a> with your xlsform attached. Thank you for using Ona.{% endblocktranslate %}
+  </p>
+{% endblock %}
