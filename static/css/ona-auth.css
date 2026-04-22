@@ -1,0 +1,203 @@
+/* Zonkey-branded OnaData auth pages.
+   "OnaData, by Ona" posture: neutral gray background, centered white
+   card, Zonkey-orange accents on primary buttons and inline links. */
+
+:root {
+  --ona-primary: #ff5d00;
+  --ona-primary-hover: #e05400;
+  --ona-primary-ring: rgba(255, 93, 0, 0.2);
+  --ona-bg: #f8f9fa;
+  --ona-card-bg: #ffffff;
+  --ona-card-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  --ona-text: #1a1a1a;
+  --ona-muted: #6b7280;
+  --ona-border: #e5e7eb;
+  --ona-error-bg: #fef2f2;
+  --ona-error-border: #fecaca;
+  --ona-error-text: #b91c1c;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family:
+    system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  color: var(--ona-text);
+  background: var(--ona-bg);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.ona-auth-header {
+  padding: 24px 32px;
+}
+
+.ona-auth-logo {
+  height: 32px;
+  width: auto;
+}
+
+.ona-auth-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.ona-auth-card {
+  background: var(--ona-card-bg);
+  border-radius: 12px;
+  box-shadow: var(--ona-card-shadow);
+  padding: 40px 32px;
+  width: 100%;
+  max-width: 440px;
+}
+
+.ona-auth-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 24px;
+  text-align: center;
+}
+
+.ona-auth-body {
+  color: var(--ona-muted);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  margin: 0 0 24px;
+}
+
+.ona-auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ona-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ona-field label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.ona-field input[type="text"],
+.ona-field input[type="email"],
+.ona-field input[type="password"] {
+  border: 1px solid var(--ona-border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 15px;
+  font-family: inherit;
+  color: inherit;
+  background: white;
+  width: 100%;
+}
+
+.ona-field input:focus {
+  outline: none;
+  border-color: var(--ona-primary);
+  box-shadow: 0 0 0 3px var(--ona-primary-ring);
+}
+
+.ona-field-error {
+  color: var(--ona-error-text);
+  font-size: 13px;
+}
+
+.ona-auth-error {
+  background: var(--ona-error-bg);
+  border: 1px solid var(--ona-error-border);
+  color: var(--ona-error-text);
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.ona-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease;
+}
+
+.ona-btn--primary {
+  background: var(--ona-primary);
+  color: white;
+  width: 100%;
+}
+
+.ona-btn--primary:hover {
+  background: var(--ona-primary-hover);
+}
+
+.ona-btn--secondary {
+  background: var(--ona-card-bg);
+  color: var(--ona-text);
+  border-color: var(--ona-border);
+  width: 100%;
+}
+
+.ona-btn--secondary:hover {
+  background: #fafafa;
+}
+
+.ona-auth-aside {
+  color: var(--ona-muted);
+  font-size: 14px;
+  text-align: center;
+  margin: 16px 0 0;
+}
+
+.ona-auth-aside a {
+  color: var(--ona-primary);
+  text-decoration: none;
+}
+
+.ona-auth-aside a:hover {
+  text-decoration: underline;
+}
+
+.ona-auth-footer {
+  padding: 24px;
+  text-align: center;
+  color: var(--ona-muted);
+  font-size: 13px;
+}
+
+.ona-auth-footer a {
+  color: var(--ona-muted);
+  text-decoration: none;
+}
+
+.ona-auth-footer a:hover {
+  text-decoration: underline;
+}
