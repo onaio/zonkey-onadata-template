@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% translate "Account created" %}{% endblock %}
+
+{% block content %}
+  <h1 class="ona-auth-title">{% translate "Account created" %}</h1>
+  <p class="ona-auth-body">
+    {% translate "We've sent you an email with a link to activate your account. Click the link to finish signing up." %}
+  </p>
+  <p class="ona-auth-body">
+    {% translate "Can't find the email? Check your spam folder." %}
+  </p>
+  <a href="{% url 'auth_login' %}" class="ona-btn ona-btn--secondary">{% translate "Back to sign in" %}</a>
+{% endblock %}
