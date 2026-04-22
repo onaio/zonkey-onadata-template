@@ -10,9 +10,6 @@
     <div class="ona-auth-error">{{ form.non_field_errors }}</div>
   {% endif %}
 
-  {# The form also defines city/country/organization/home_page/twitter,
-     but those are optional and we don't want to prompt for them here —
-     omitting them from the POST lets the form validate successfully. #}
   <form method="post" action="." class="ona-auth-form">
     {% csrf_token %}
 
