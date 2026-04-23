@@ -1,72 +1,84 @@
-{% extends "base.html" %}
-{% load i18n %}
+{% extends "base.html" %} {% load i18n %} {% block title %}{% translate "Create
+an OnaData account" %}{% endblock %} {% block content %}
+<h1 class="ona-auth-title">{% translate "Create an OnaData account" %}</h1>
 
-{% block title %}{% translate "Create an OnaData account" %}{% endblock %}
+{% if form.non_field_errors %}
+<div class="ona-auth-error">{{ form.non_field_errors }}</div>
+{% endif %}
 
-{% block content %}
-  <h1 class="ona-auth-title">{% translate "Create an OnaData account" %}</h1>
+<form method="post" action="." class="ona-auth-form">
+  {% csrf_token %}
 
-  {% if form.non_field_errors %}
-    <div class="ona-auth-error">{{ form.non_field_errors }}</div>
-  {% endif %}
+  <div class="ona-field">
+    <label for="{{ form.username.id_for_label }}">
+      {{ form.username.label }}{% if form.username.field.required %} *{% endif
+      %}
+    </label>
+    {{ form.username }} {% if form.username.help_text %}
+    <div class="ona-field-help">{{ form.username.help_text|safe }}</div>
+    {% endif %} {% if form.username.errors %}
+    <div class="ona-field-error">{{ form.username.errors }}</div>
+    {% endif %}
+  </div>
 
-  <form method="post" action="." class="ona-auth-form">
-    {% csrf_token %}
+  <div class="ona-field">
+    <label for="{{ form.email.id_for_label }}">
+      {{ form.email.label }}{% if form.email.field.required %} *{% endif %}
+    </label>
+    {{ form.email }} {% if form.email.errors %}
+    <div class="ona-field-error">{{ form.email.errors }}</div>
+    {% endif %}
+  </div>
 
-    <div class="ona-field">
-      <label for="{{ form.username.id_for_label }}">
-        {{ form.username.label }}{% if form.username.field.required %} *{% endif %}
-      </label>
-      {{ form.username }}
-      {% if form.username.help_text %}<div class="ona-field-help">{{ form.username.help_text|safe }}</div>{% endif %}
-      {% if form.username.errors %}<div class="ona-field-error">{{ form.username.errors }}</div>{% endif %}
-    </div>
+  <div class="ona-field">
+    <label for="{{ form.first_name.id_for_label }}">
+      {{ form.first_name.label }}{% if form.first_name.field.required %} *{%
+      endif %}
+    </label>
+    {{ form.first_name }} {% if form.first_name.errors %}
+    <div class="ona-field-error">{{ form.first_name.errors }}</div>
+    {% endif %}
+  </div>
 
-    <div class="ona-field">
-      <label for="{{ form.email.id_for_label }}">
-        {{ form.email.label }}{% if form.email.field.required %} *{% endif %}
-      </label>
-      {{ form.email }}
-      {% if form.email.errors %}<div class="ona-field-error">{{ form.email.errors }}</div>{% endif %}
-    </div>
+  <div class="ona-field">
+    <label for="{{ form.last_name.id_for_label }}">
+      {{ form.last_name.label }}{% if form.last_name.field.required %} *{% endif
+      %}
+    </label>
+    {{ form.last_name }} {% if form.last_name.errors %}
+    <div class="ona-field-error">{{ form.last_name.errors }}</div>
+    {% endif %}
+  </div>
 
-    <div class="ona-field">
-      <label for="{{ form.first_name.id_for_label }}">
-        {{ form.first_name.label }}{% if form.first_name.field.required %} *{% endif %}
-      </label>
-      {{ form.first_name }}
-      {% if form.first_name.errors %}<div class="ona-field-error">{{ form.first_name.errors }}</div>{% endif %}
-    </div>
+  <div class="ona-field">
+    <label for="{{ form.password1.id_for_label }}">
+      {{ form.password1.label }}{% if form.password1.field.required %} *{% endif
+      %}
+    </label>
+    {{ form.password1 }} {% if form.password1.help_text %}
+    <div class="ona-field-help">{{ form.password1.help_text|safe }}</div>
+    {% endif %} {% if form.password1.errors %}
+    <div class="ona-field-error">{{ form.password1.errors }}</div>
+    {% endif %}
+  </div>
 
-    <div class="ona-field">
-      <label for="{{ form.last_name.id_for_label }}">
-        {{ form.last_name.label }}{% if form.last_name.field.required %} *{% endif %}
-      </label>
-      {{ form.last_name }}
-      {% if form.last_name.errors %}<div class="ona-field-error">{{ form.last_name.errors }}</div>{% endif %}
-    </div>
+  <div class="ona-field">
+    <label for="{{ form.password2.id_for_label }}">
+      {{ form.password2.label }}{% if form.password2.field.required %} *{% endif
+      %}
+    </label>
+    {{ form.password2 }} {% if form.password2.errors %}
+    <div class="ona-field-error">{{ form.password2.errors }}</div>
+    {% endif %}
+  </div>
 
-    <div class="ona-field">
-      <label for="{{ form.password1.id_for_label }}">
-        {{ form.password1.label }}{% if form.password1.field.required %} *{% endif %}
-      </label>
-      {{ form.password1 }}
-      {% if form.password1.help_text %}<div class="ona-field-help">{{ form.password1.help_text|safe }}</div>{% endif %}
-      {% if form.password1.errors %}<div class="ona-field-error">{{ form.password1.errors }}</div>{% endif %}
-    </div>
+  <button type="submit" class="ona-btn ona-btn--primary">
+    {% translate "Create account" %}
+  </button>
+</form>
 
-    <div class="ona-field">
-      <label for="{{ form.password2.id_for_label }}">
-        {{ form.password2.label }}{% if form.password2.field.required %} *{% endif %}
-      </label>
-      {{ form.password2 }}
-      {% if form.password2.errors %}<div class="ona-field-error">{{ form.password2.errors }}</div>{% endif %}
-    </div>
-
-    <button type="submit" class="ona-btn ona-btn--primary">{% translate "Create account" %}</button>
-  </form>
-
-  <p class="ona-auth-aside">
-    {% blocktranslate %}Already have an account? <a href="{{ ZONKEY_LOGIN_URL }}">Sign in.</a>{% endblocktranslate %}
-  </p>
+<p class="ona-auth-aside">
+  {% blocktranslate %}Already have an account?
+  <a href="{{ ZONKEY_LOGIN_URL }}">Sign in.</a>{% endblocktranslate %}
+</p>
 {% endblock %}

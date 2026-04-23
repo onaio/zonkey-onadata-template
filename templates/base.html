@@ -1,26 +1,28 @@
 {% load static i18n %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}OnaData{% endblock %}</title>
-  <link rel="icon" href="{% static 'favicon-32x32.png' %}" type="image/png">
-  <link rel="stylesheet" href="{% static 'css/ona-auth.css' %}">
-</head>
-<body>
-  <header class="ona-auth-header">
-    <img src="{% static 'onadata-logo.png' %}" alt="OnaData" class="ona-auth-logo">
-  </header>
-  <main class="ona-auth-main">
-    <div class="ona-auth-card">
-      {% block content %}{% endblock %}
-    </div>
-  </main>
-  <footer class="ona-auth-footer">
-    &copy; Ona Systems
-    &middot; <a href="https://company.ona.io/privacy-policy/">Privacy</a>
-    &middot; <a href="https://company.ona.io/tos/">Terms</a>
-  </footer>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}OnaData{% endblock %}</title>
+    <link rel="icon" href="{% static 'favicon-32x32.png' %}" type="image/png" />
+    <link rel="stylesheet" href="{% static 'css/ona-auth.css' %}" />
+  </head>
+  <body>
+    <header class="ona-auth-header">
+      <img
+        src="{% static 'onadata-logo.png' %}"
+        alt="OnaData"
+        class="ona-auth-logo"
+      />
+    </header>
+    <main class="ona-auth-main">
+      <div class="ona-auth-card">{% block content %}{% endblock %}</div>
+    </main>
+    <footer class="ona-auth-footer">
+      &copy; Ona Systems &middot;
+      <a href="https://company.ona.io/privacy-policy/">Privacy</a> &middot;
+      <a href="https://company.ona.io/tos/">Terms</a>
+    </footer>
+  </body>
 </html>
