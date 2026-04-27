@@ -1,0 +1,4 @@
+# Django templates use {% ... %} tags that prettier treats as plain text and
+# happily wraps near printWidth, splitting tags like {% endblocktranslate %}
+# across two lines and breaking the template parser. Skip them entirely.
+templates/
