@@ -1,5 +1,7 @@
-{% extends "base.html" %} {% load i18n %} {% block title %}{% translate "Sign in
-to OnaData" %}{% endblock %} {% block content %}
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Sign in to OnaData" %}{% endblock %}
+{% block content %}
 <h1 class="ona-auth-title">{% translate "Sign in to OnaData" %}</h1>
 
 {% if form.non_field_errors %}
@@ -40,6 +42,8 @@ to OnaData" %}{% endblock %} {% block content %}
     {% translate "Sign in" %}
   </button>
 </form>
+
+{% include "registration/_oidc_providers.html" %}
 
 <p class="ona-auth-aside">
   {% url "auth_password_reset" as reset_url %} {% blocktranslate %}Forgot your

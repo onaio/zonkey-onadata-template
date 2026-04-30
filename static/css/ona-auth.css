@@ -183,6 +183,37 @@ body {
   background: #fafafa;
 }
 
+.ona-auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  color: var(--ona-muted);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ona-auth-divider::before,
+.ona-auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--ona-border);
+}
+
+.ona-auth-provider {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.ona-auth-provider + .ona-auth-provider {
+  margin-top: 10px;
+}
+
 .ona-auth-aside {
   color: var(--ona-muted);
   font-size: 14px;
