@@ -1,5 +1,7 @@
-{% extends "base.html" %} {% load i18n %} {% block title %}{% translate "Signed
-out" %}{% endblock %} {% block content %}
+{% extends "auth_base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Signed out" %}{% endblock %}
+{% block content %}
 <h1 class="ona-auth-title">{% translate "Signed out" %}</h1>
 <p class="ona-auth-body">
   {% translate "You have been signed out of OnaData." %}
