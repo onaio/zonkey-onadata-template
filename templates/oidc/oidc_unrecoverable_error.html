@@ -1,0 +1,32 @@
+{% extends "auth_base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Sign-in error" %}{% if error_title %} — {{ error_title }}{% endif %}{% endblock %}
+{% block content %}
+<h1 class="ona-auth-title">
+  {% if error_title %}{{ error_title }}{% else %}{% translate "We couldn't sign you in" %}{% endif %}
+</h1>
+
+<p class="ona-auth-aside">
+  {% blocktranslate %}Something went wrong while completing your sign-in.
+  Please try again. If the problem persists, contact your administrator.
+  {% endblocktranslate %}
+</p>
+
+{% if error %}
+<details class="ona-auth-error" style="white-space: normal;">
+  <summary>{% translate "Technical details" %}</summary>
+  <p style="margin-top: 0.5rem; word-break: break-word;">{{ error }}</p>
+</details>
+{% endif %}
+
+<div style="margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+  {% if login_url %}
+  <a href="{{ login_url }}" class="ona-btn ona-btn--primary" style="text-decoration: none;">
+    {% translate "Try again" %}
+  </a>
+  {% endif %}
+  <a href="/" class="ona-btn ona-btn--secondary" style="text-decoration: none;">
+    {% translate "Back to home" %}
+  </a>
+</div>
+{% endblock %}
