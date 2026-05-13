@@ -25,7 +25,7 @@
     {% translate "Try again" %}
   </a>
   {% endif %}
-  <a href="/" class="ona-btn ona-btn--secondary" style="text-decoration: none;">
+  <a href="{% firstof ZONKEY_URL '/' %}" class="ona-btn ona-btn--secondary" style="text-decoration: none;">
     {% translate "Back to home" %}
   </a>
 </div>
