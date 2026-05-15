@@ -77,6 +77,16 @@
     {% endif %}
   </div>
 
+  <div class="ona-field ona-field--checkbox">
+    <label for="ona-terms" class="ona-checkbox-label">
+      <input type="checkbox" id="ona-terms" name="terms" required />
+      <span>{% blocktranslate %}I agree to the
+        <a href="https://company.ona.io/tos/" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+        and
+        <a href="https://company.ona.io/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a>{% endblocktranslate %}</span>
+    </label>
+  </div>
+
   <button type="submit" class="ona-btn ona-btn--primary">
     {% translate "Create account" %}
   </button>
